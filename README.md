@@ -14,5 +14,9 @@
 ```
 
 ```
+/plugin install open-skill-hub-docs@open-skill-hub
+```
+
+```
 /reload-skills
 ```

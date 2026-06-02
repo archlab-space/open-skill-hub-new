@@ -1,0 +1,19 @@
+{
+  "name": "open-skill-hub-docs",
+  "description": "Developer documentation skills for AI agents",
+  "version": "0.1.0",
+  "author": {
+    "name": "devasher",
+    "email": "hlxstc680@gmail.com"
+  },
+  "homepage": "https://github.com/archlab-space/open-skill-hub",
+  "repository": "https://github.com/archlab-space/open-skill-hub",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "documentation",
+    "readme",
+    "developer-docs",
+    "open-source"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "open-skill-hub-docs",
+  "version": "0.1.0",
+  "description": "Developer documentation skills for AI agents.",
+  "author": {
+    "name": "devasher",
+    "email": "hlxstc680@gmail.com",
+    "url": "https://archlab.space"
+  },
+  "homepage": "https://github.com/archlab-space/open-skill-hub",
+  "repository": "https://github.com/archlab-space/open-skill-hub",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "documentation",
+    "readme",
+    "developer-docs",
+    "open-source"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Docs",
+    "shortDescription": "Developer documentation skills for code repositories",
+    "longDescription": "Open Skill Hub Docs packages reusable developer-documentation skills, starting with a README writer that analyzes a repository and drafts or audits a clear, structured README from the code itself.",
+    "developerName": "devasher",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Write a README for this repository."
+    ],
+    "websiteURL": "https://github.com/archlab-space/open-skill-hub",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "brandColor": "#10A37F",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "screenshots": []
+  }
+}
