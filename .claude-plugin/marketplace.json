@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "open-skill-hub-writing",
-      "description": "Writing and content strategy skills: X post drafting and content workflows for AI coding agents",
+      "description": "Writing and content strategy skills for AI agents",
       "source": "./plugins/writing",
       "author": {
         "name": "devasher",
