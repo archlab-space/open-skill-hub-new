@@ -1,6 +1,6 @@
 # Open Skill Hub Writing
 
-Writing and content strategy skills for AI coding agents.
+Writing and content strategy skills for AI agents.
 
 ## Skills
 
