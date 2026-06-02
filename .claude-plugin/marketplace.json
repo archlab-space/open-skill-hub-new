@@ -7,6 +7,15 @@
   },
   "plugins": [
     {
+      "name": "open-skill-hub-seo",
+      "description": "Generative Engine Optimization (GEO) and AI-search SEO skills for AI agents",
+      "source": "./plugins/seo",
+      "author": {
+        "name": "devasher",
+        "email": "hlxstc680@gmail.com"
+      }
+    },
+    {
       "name": "open-skill-hub-writing",
       "description": "Writing and content strategy skills for AI agents",
       "source": "./plugins/writing",
