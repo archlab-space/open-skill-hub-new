@@ -267,9 +267,38 @@ Format: [chart / quote card / framework / diagram / comparison]
 Aspect ratio: [16:9 / 4:5 / 1:1]
 Text on image: [short words only, no crowded paragraphs]
 Visual direction: [style, layout, colors, constraints]
+Render method: [HTML/CSS via render-image.js | image model | real screenshot]
 ```
 
 If no image helps, write: `Image recommendation: No - [brief reason]`.
+
+**Choosing the render method:** for **text- or data-driven** graphics (quote cards, data/metric cards, frameworks, comparisons, checklists, timelines), recommend `HTML/CSS via render-image.js` — see **Rendering Text/Data Graphics** below. For photographic or illustrative needs, recommend an image model; for showing the real product, recommend a real screenshot — never fabricate one.
+
+### Rendering Text/Data Graphics (HTML/CSS + Headless Chrome)
+
+When the image is text- or data-driven, you can render it deterministically with HTML/CSS and headless Chrome instead of describing it for a separate tool. This is reproducible and batchable.
+
+**Use this method when** the graphic is layout/typography driven and benefits from precise, repeatable output:
+
+- Quote cards, data/metric cards (real numbers), framework / comparison / checklist / timeline diagrams, code-snippet cards.
+
+**Do not use this method** (use an image model or a real capture instead) when:
+
+- The visual is photographic or illustrative (product photos, lifestyle, hero art), or
+- It must show the real product — take an actual screenshot; never fake one.
+
+**How to render:**
+
+1. Author a self-contained HTML file (inline CSS, no external network assets). Start from `assets/quote-card.html` or `assets/data-card.html`.
+2. Run the helper script:
+
+   ```sh
+   node scripts/render-image.js <input.html> <output.png> [--width=1080] [--height=1080] [--scale=2]
+   ```
+
+3. Attach the PNG to the post.
+
+First-time setup, sizes, and fallback behavior are in `render-image-setup.md`. If no browser can launch, the script keeps the HTML and prints manual-render instructions — relay the image brief so the user can render or generate it another way.
 
 ### Step 9: Review And Revise
 
@@ -371,6 +400,7 @@ Thread [template name]:
 - Keep the final text publishable, not just instructive.
 - Do not make weak material sound more certain than it is.
 - Do not recommend images automatically.
+- Image rendering via `render-image.js` is optional and only for text/data graphics; on failure, degrade gracefully to the image brief. Never fabricate a product screenshot — capture the real one.
 - Do not bury the final draft under long explanations.
 - If the user asks for direct publishing help, remind them to review factual claims before posting.
 - Obsidian saving is opt-in only. Never write to a vault without explicit user consent or an upfront session-level request.
