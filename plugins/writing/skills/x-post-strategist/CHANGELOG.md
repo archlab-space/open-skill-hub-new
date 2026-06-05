@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.7.0] - 2026-06-05
+
+### Added
+- HTML/CSS + headless Chrome image rendering for text/data graphics: `scripts/render-image.js` (Puppeteer, with system-Chrome and manual fallback), `scripts/package.json`, `render-image-setup.md`, and example templates `assets/quote-card.html`, `assets/data-card.html`.
+- New "Rendering Text/Data Graphics" subsection and a decision rule for when to render via HTML/CSS vs. an image model vs. a real screenshot.
+
+### Changed
+- Extended Step 8 image brief with a `Render method:` line and guidance to render text/data graphics directly to PNG.
+
 ## [0.5.7] - 2026-05-29
 - Remove hardcoded `obsidian-vault-writer` skill reference in Step 10; now uses generic language to support any installed Obsidian skill.
 
