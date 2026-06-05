@@ -37,7 +37,7 @@ Then install the plugins you want:
 Reload so the new skills are available:
 
 ```
-/reload-skills
+/reload-plugins
 ```
 
 ## Usage
