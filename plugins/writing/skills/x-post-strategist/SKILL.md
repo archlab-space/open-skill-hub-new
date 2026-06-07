@@ -49,7 +49,7 @@ If goal, audience, and tone are all unspecified, read the source material and in
 
 ### Step 2: Enrich Context
 
-Run automatically on every request — no user prompt needed. Execute all three sub-tasks in order.
+Run these research sub-tasks when web/search tools are available, using only the topic text the user provides — no credentials or personal data are transmitted. Execute all three sub-tasks in order.
 
 **1. Background Search**
 Search for foundational context on the topic. Summarise to ≤ 3 core facts the user may not have included. If the source material is a well-cited report with clear references, reduce this to a quick gap-fill — but never skip it entirely.

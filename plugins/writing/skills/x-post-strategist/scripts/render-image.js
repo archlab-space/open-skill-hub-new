@@ -100,9 +100,14 @@ async function main() {
     process.exit(1);
   }
 
+  // Default args contain no sandbox-disabling flags. Linux/container users that
+  // need them can pass them via RENDER_CHROME_ARGS (see render-image-setup.md).
+  const extraArgs = (process.env.RENDER_CHROME_ARGS || "")
+    .split(/\s+/)
+    .filter(Boolean);
   const launchOptions = {
     headless: "new",
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--force-color-profile=srgb"],
+    args: ["--force-color-profile=srgb", ...extraArgs],
   };
 
   let browser;
