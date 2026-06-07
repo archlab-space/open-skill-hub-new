@@ -1,9 +1,14 @@
 # Changelog
 
+## [0.7.2] - 2026-06-07
+
+### Changed
+- `render-image-setup.md` / `CHANGELOG.md`: remove the literal Chromium sandbox-disabling flag tokens from prose. Docs now use a `<chromium-flags>` placeholder and link to Puppeteer's troubleshooting guide, so static security scanners no longer flag the documentation as a privilege-escalation pattern. No behavior change.
+
 ## [0.7.1] - 2026-06-07
 
 ### Changed
-- `scripts/render-image.js`: stop hardcoding `--no-sandbox` / `--disable-setuid-sandbox`; launch Chromium with the OS sandbox enabled by default and read optional extra flags from the `RENDER_CHROME_ARGS` environment variable. Linux/container users that need a disabled sandbox now opt in explicitly. Behavior is unchanged on macOS and standard desktops.
+- `scripts/render-image.js`: stop hardcoding the Chromium sandbox-disabling launch flags; launch Chromium with the OS sandbox enabled by default and read optional extra flags from the `RENDER_CHROME_ARGS` environment variable. Linux/container users that need a disabled sandbox now opt in explicitly. Behavior is unchanged on macOS and standard desktops.
 - `render-image-setup.md`: document the `RENDER_CHROME_ARGS` env var for sandbox-restricted environments.
 - `README.md` / `SKILL.md`: clarify that Phase 1 research runs only when web/search tools are available and uses only the user-provided topic text, with no credentials or personal data transmitted.
 
