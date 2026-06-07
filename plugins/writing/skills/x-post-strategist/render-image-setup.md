@@ -53,3 +53,13 @@ Output PNG goes to whatever path you pass; default to the current working direct
 ## Fallback
 
 If the bundled Chromium cannot launch, the script tries a system Chrome (set `PUPPETEER_EXECUTABLE_PATH` to force one). If no browser is available, it **keeps the HTML file**, prints manual-render instructions, and exits non-zero. You can then render the HTML by hand in Chrome (DevTools → "Capture node screenshot") or with `chrome --headless --screenshot`.
+
+## Sandbox flags (Linux / containers)
+
+The script launches Chromium with the OS sandbox **enabled** by default, which works on macOS and most Linux desktops. Some environments — root-user Docker containers or CI runners — require disabling the sandbox or Chromium will not start. In those cases pass the flags explicitly via the `RENDER_CHROME_ARGS` environment variable:
+
+```sh
+RENDER_CHROME_ARGS='--no-sandbox --disable-setuid-sandbox' node render-image.js card.html card.png
+```
+
+Only set this when a launch fails for sandbox reasons; leaving it unset keeps the sandbox on.

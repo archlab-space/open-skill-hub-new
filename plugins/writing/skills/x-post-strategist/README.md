@@ -19,7 +19,7 @@ A strategy editor for writing X posts and threads. It turns rough ideas, short p
 
 **Phase 1: Research**
 1. Clarifies the goal, audience, tone, account type, format, and optional style samples
-2. Automatically searches for background context, trending angles, and fact signals — on every request
+2. When web/search tools are available, researches background context and trending angles using only the topic text you provide — no credentials or personal data are sent
 3. Verifies factual claims and flags risk before writing
 
 **Phase 2: Creation**

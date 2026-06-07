@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1] - 2026-06-07
+
+### Changed
+- `scripts/render-image.js`: stop hardcoding `--no-sandbox` / `--disable-setuid-sandbox`; launch Chromium with the OS sandbox enabled by default and read optional extra flags from the `RENDER_CHROME_ARGS` environment variable. Linux/container users that need a disabled sandbox now opt in explicitly. Behavior is unchanged on macOS and standard desktops.
+- `render-image-setup.md`: document the `RENDER_CHROME_ARGS` env var for sandbox-restricted environments.
+- `README.md` / `SKILL.md`: clarify that Phase 1 research runs only when web/search tools are available and uses only the user-provided topic text, with no credentials or personal data transmitted.
+
 ## [0.7.0] - 2026-06-05
 
 ### Added
@@ -35,7 +42,7 @@ Rewrote frontmatter description to concise 200–500 character format for improv
 - Update `google-sheet-sync.md` and `SKILL.md` to reference `node` / `npm install` instead of `python` / `pip`
 
 ## [0.5.1] - 2026-05-20
-- Rewrite `google-sheet-sync.md` with wizard structure: First-time setup (pip install as step 1, OAuth2 promoted to Option A for personal use), Daily use, and Reference sections; add verify command
+- Rewrite `google-sheet-sync.md` with wizard structure: First-time setup (Python dependency install as step 1, OAuth2 promoted to Option A for personal use), Daily use, and Reference sections; add verify command
 - Fix `SKILL.md` Step 10 to clarify script path resolution and surface dependency install check before first save
 
 ## [0.5.0] - 2026-05-20
