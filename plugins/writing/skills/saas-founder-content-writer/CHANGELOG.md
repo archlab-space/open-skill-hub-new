@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.7.2] - 2026-06-07
+
+### Changed
+- `scripts/render-image.js`: stop hardcoding the Chromium sandbox-disabling launch flags; launch Chromium with the OS sandbox enabled by default and read optional extra flags from the `RENDER_CHROME_ARGS` environment variable. Container/CI users opt in explicitly. No behavior change on macOS / standard desktops. This removes the privilege-escalation pattern that static security scanners flagged.
+- `render-image-setup.md`: document `RENDER_CHROME_ARGS` using a `<chromium-flags>` placeholder and a link to Puppeteer's troubleshooting guide, with no literal flag tokens in prose.
+
 ## [0.7.0] - 2026-06-05
 
 ### Added

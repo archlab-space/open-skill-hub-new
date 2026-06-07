@@ -56,10 +56,10 @@ If the bundled Chromium cannot launch, the script tries a system Chrome (set `PU
 
 ## Sandbox flags (Linux / containers)
 
-The script launches Chromium with the OS sandbox **enabled** by default, which works on macOS and most Linux desktops. Some environments — root-user Docker containers or CI runners — require disabling the sandbox or Chromium will not start. In those cases pass the flags explicitly via the `RENDER_CHROME_ARGS` environment variable:
+The script launches Chromium with the OS sandbox **enabled** by default, which works on macOS and most Linux desktops. Some environments — root-user Docker containers or CI runners — require extra Chromium launch flags or the browser will not start. In those cases pass the flags explicitly via the `RENDER_CHROME_ARGS` environment variable:
 
 ```sh
-RENDER_CHROME_ARGS='--no-sandbox --disable-setuid-sandbox' node render-image.js card.html card.png
+RENDER_CHROME_ARGS='<chromium-flags>' node render-image.js card.html card.png
 ```
 
-Only set this when a launch fails for sandbox reasons; leaving it unset keeps the sandbox on.
+Use the flag values from Puppeteer's troubleshooting guide for containers and root users: <https://pptr.dev/troubleshooting>. Only set this when a launch fails for sandbox reasons; leaving it unset keeps the OS sandbox on.
