@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.0] - 2026-06-08
+
+### Added
+- New Step 9 "Save To Vault (Optional)": opt-in archiving of finalized drafts to `<vault>/Founder Posts/YYYY-MM-DD.md`, one file per day. Reuses the env-var / named-path / three-option location resolution, `obsidian`-skill delegation, and graceful chat fallback. Rendered PNGs (Xiaohongshu covers / data cards) are copied into `Founder Posts/attachments/` and embedded with Obsidian `![[...]]`; when no PNG was rendered, the image brief is saved instead. The per-section file format records angle, platform, and platform-specific fields (X thread numbering, Reddit title/body, Xiaohongshu 标题/正文/#标签).
+
+### Changed
+- Output Format gains a first-draft "Save to vault?" prompt line; Key Rules document the opt-in save behavior. README lists the new step.
+
 ## [0.7.2] - 2026-06-07
 
 ### Changed
