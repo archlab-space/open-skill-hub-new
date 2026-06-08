@@ -325,37 +325,50 @@ If subagents or independent reviewers are available, use them for the review pas
 
 If subagents are not available, perform the same checks yourself.
 
-### Step 10: Save To Obsidian (Optional)
+### Step 10: Save To Vault (Optional)
 
-**Trigger detection — check at session start:**
+Saving is **opt-in only**. Generated drafts go to a dedicated subfolder in the user's vault — never into their daily note or any of their own notes.
 
-If the user's opening message requests saving to Obsidian, activate **session mode**: auto-save every finalized draft without asking again.
+**Target:** `<base>/X Posts/YYYY-MM-DD.md` — one file per day, the folder created if missing. Always resolve to a concrete **absolute path** before writing.
 
-Otherwise use **per-tweet mode**: immediately after presenting drafts (at the end of Step 7/9 output, before asking for revisions), ask once:
-> "Save these drafts to Obsidian? (y/n)"
+**Trigger — check at session start:**
+- If the opening message asks to save (e.g. "save to Obsidian", "save to ~/foo"), saving is enabled for the session.
+- Otherwise, offer it once on the first finalized draft (see below).
 
-**When saving:** use the available Obsidian skill to append the drafts to today's daily note using this format:
+**First save — resolve the location once per session:**
+1. If `OBSIDIAN_VAULT_PATH` is set, use it as the base. Announce the resolved absolute target on the first write (e.g. "Saving to `/Users/x/obsidianVault/X Posts/2026-06-07.md`") — this announcement confirms the target.
+2. If the opening message named a path, use it the same way (announce, no prompt).
+3. Otherwise ask once:
+   > Save these drafts? Reply with (1) a folder path, (2) `default` to use `~/obsidianVault/X Posts/`, or (3) `no` to skip.
+   - A path → write to `<path>/X Posts/…`.
+   - `default` → write to `~/obsidianVault/X Posts/…` (created if missing).
+   - `no` → do not save, do not output a block, and stop asking for the rest of the session.
+
+**Cadence:** Once a path or the default is chosen (or saving was enabled upfront), auto-save every finalized draft for the rest of the session — do not ask again. The user may skip an individual draft by saying so.
+
+**Who writes the file:**
+1. If an `obsidian` skill is available in this environment, delegate the create/append to it. Pass the **already-resolved absolute path** and the content — never a path containing a shell variable like `$OBSIDIAN_VAULT_PATH`. It handles vault initialization and paths with spaces.
+2. If no `obsidian` skill is available, write the file directly with this platform's file-write capability (for example `Write` in Claude Code, `write_file` in Hermes). Create the `X Posts/` folder if needed.
+3. If the write fails for any reason, **do not lose the content**: paste the finalized markdown block in the chat so the user can copy it manually.
+
+**macOS note:** Only when a write fails **and** the target is under `~/Documents/`, add one line — the cause may be iCloud Drive sync or macOS privacy (TCC) permissions; suggest moving the vault out of `~/Documents` or granting access. Do not show this otherwise.
+
+**File format** — when the day file is new, start it with a title; append one section per save:
 
 ```markdown
-## X Posts
+# X Posts — 2026-06-07
 
-### HH:MM — [source]
+## 09:14 — [topic or url]
+**Type:** single | thread
 
-> **Type:** single | thread
-> **Source:** [url or topic]
-
-**Variant 1:**
+Variant 1:
 [post text]
 
-**Variant 2:**
-[post text — omit if only one variant]
+Variant 2:
+[post text — omit this block when there is only one variant]
 ```
 
-Use a 24-hour `HH:MM` timestamp. For threads, include the full thread as numbered lines under **Variant 1**. Do not truncate post text.
-
-**Safety:**
-- Confirm vault path on the first save in this environment.
-- Never write to a vault not already confirmed in this session.
+Use a 24-hour `HH:MM` timestamp (local time). For threads, place the full thread as numbered lines under **Variant 1**; never truncate post text.
 
 ---
 
@@ -376,8 +389,8 @@ Image recommendation:
 Self-review:
 [scores and any final adjustment]
 
-Save to Obsidian? (y/n)
-[omit this line only if session mode is already active]
+Save to vault? (first draft only — reply with a folder path, `default`, or `no`)
+[omit this line once a location is chosen or saving is disabled for the session]
 ```
 
 For threads, number each post and name the template used:
@@ -403,8 +416,8 @@ Thread [template name]:
 - Image rendering via `render-image.js` is optional and only for text/data graphics; on failure, degrade gracefully to the image brief. Never fabricate a product screenshot — capture the real one.
 - Do not bury the final draft under long explanations.
 - If the user asks for direct publishing help, remind them to review factual claims before posting.
-- Obsidian saving is opt-in only. Never write to a vault without explicit user consent or an upfront session-level request.
-- Always run Step 10 after every draft output — either auto-save (session mode) or ask (per-tweet mode). Do not skip it.
+- Saving is opt-in only. Never write without explicit user consent or an upfront session-level request, and always save to the `X Posts/` subfolder — never the user's daily note.
+- Always run Step 10 after every draft output. On the first save, resolve the location (env var, named path, or three-option prompt); afterwards auto-save unless the user chose not to save.
 
 ## Feedback
 
