@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.7.3] - 2026-06-08
+
+### Changed
+- Rewrite Step 10 saving: drafts now go to a dedicated `X Posts/` subfolder with one file per day (`YYYY-MM-DD.md`) instead of the user's daily note.
+- Add an explicit first-save location flow: use `OBSIDIAN_VAULT_PATH` if set, else a three-option prompt (folder path / `~/obsidianVault/X Posts/` default / skip). Resolve to an absolute path before writing.
+- Define the write mechanism: delegate to an available `obsidian` skill when present, otherwise write the markdown file directly; on any write failure, paste the block in chat so content is never lost.
+- Add a macOS-only hint shown only when a write fails under `~/Documents/` (iCloud sync / TCC permissions).
+- Update the Output Format save prompt and Key Rules to match.
+
 ## [0.7.2] - 2026-06-07
 
 ### Changed
