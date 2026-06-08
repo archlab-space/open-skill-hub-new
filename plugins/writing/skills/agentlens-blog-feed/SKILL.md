@@ -58,9 +58,10 @@ Fixed values (not configurable):
 2. **Fetch the list:** `GET {WORKER_URL}/blogs?limit=100`. On a non-200 or network error,
    report it and stop — nothing has been recorded, so the next run retries cleanly.
 3. **Select new blogs:** keep items whose `id` is **not** in `processed_ids`. Sort the
-   survivors **descending** by `occurred_at ?? generated_at` (parse ISO → ms) so you
-   process the **newest first** — the most recent blogs are the most timely and should be
-   handled before older ones. If none remain, report "no new blogs" and finish.
+   survivors **descending** by `generated_at` (parse ISO → ms) so you process the
+   **newest first** — the most recent blogs are the most timely and should be handled
+   before older ones. (`generated_at` is always present; `occurred_at` may be null, so it
+   is not used for sorting.) If none remain, report "no new blogs" and finish.
 4. **Fetch each body (newest first):** `GET {WORKER_URL}/blogs/{id}`. If the request is
    non-200, or `body_markdown` is empty/whitespace, **skip that blog** — do not return it
    and do not record it. It will retry next run (the stored body may not have propagated
