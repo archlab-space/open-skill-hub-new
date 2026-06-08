@@ -195,6 +195,59 @@ Before finalizing, check the draft against this rubric. Revise once if any line 
 | Strong open | First line earns the second. |
 | Image fit | Image added only when it earns its place; for Xiaohongshu, a cover is present. Text/data graphics use HTML/CSS rendering; no fabricated screenshots. |
 
+### Step 9: Save To Vault (Optional)
+
+Saving is **opt-in only**. Generated drafts and any rendered images go to a dedicated subfolder in the user's vault — never into their daily note or any of their own notes.
+
+**Target:** `<base>/Founder Posts/YYYY-MM-DD.md` — one file per day, the folder created if missing. Rendered images go to `<base>/Founder Posts/attachments/`. Always resolve to a concrete **absolute path** before writing.
+
+**Trigger — check at session start:**
+- If the opening message asks to save (e.g. "save to Obsidian", "save to ~/foo"), saving is enabled for the session.
+- Otherwise, offer it once on the first finalized draft (see below).
+
+**First save — resolve the location once per session:**
+1. If `OBSIDIAN_VAULT_PATH` is set, use it as the base. Announce the resolved absolute target on the first write (e.g. "Saving to `/Users/x/obsidianVault/Founder Posts/2026-06-08.md`") — this announcement confirms the target.
+2. If the opening message named a path, use it the same way (announce, no prompt).
+3. Otherwise ask once:
+   > Save these drafts? Reply with (1) a folder path, (2) `default` to use `~/obsidianVault/Founder Posts/`, or (3) `no` to skip.
+   - A path → write to `<path>/Founder Posts/…`.
+   - `default` → write to `~/obsidianVault/Founder Posts/…` (created if missing).
+   - `no` → do not save, do not output a save block, and stop asking for the rest of the session.
+
+**Cadence:** Once a path or the default is chosen (or saving was enabled upfront), auto-save every finalized draft for the rest of the session — do not ask again. The user may skip an individual draft by saying so.
+
+**Saving rendered images:**
+- If this draft was accompanied by one or more PNGs rendered via `render-image.js` (e.g. a Xiaohongshu cover or data cards), copy each PNG into `<base>/Founder Posts/attachments/` named `YYYY-MM-DD-<platform>-<slug>-<n>.png` (`<slug>` = a short kebab-case topic tag; `<n>` = 1-based index, cover first).
+- Reference each saved image in the day file with an Obsidian embed: `![[attachments/YYYY-MM-DD-<platform>-<slug>-<n>.png]]`.
+- If no PNG was rendered (only an image brief, or no image), save the image brief text instead — never invent an image path.
+- If copying a PNG fails, keep the draft text saved, leave the original rendered file in place, and note its current path in the chat so the user can move it manually.
+
+**Who writes the file:**
+1. If an `obsidian` skill is available in this environment, delegate the create/append (and the image copy if it supports it) to it. Pass the **already-resolved absolute path** and the content — never a path containing a shell variable like `$OBSIDIAN_VAULT_PATH`. It handles vault initialization and paths with spaces.
+2. If no `obsidian` skill is available, write the file directly with this platform's file-write capability (for example `Write` in Claude Code, `write_file` in Hermes), and copy PNGs with the platform's file tools. Create the `Founder Posts/` and `attachments/` folders if needed.
+3. If the write fails for any reason, **do not lose the content**: paste the finalized markdown block in the chat so the user can copy it manually.
+
+**macOS note:** Only when a write fails **and** the target is under `~/Documents/`, add one line — the cause may be iCloud Drive sync or macOS privacy (TCC) permissions; suggest moving the vault out of `~/Documents` or granting access. Do not show this otherwise.
+
+**File format** — when the day file is new, start it with a title; append one section per save. Use a 24-hour `HH:MM` timestamp (local time). Include only the fields relevant to the platform:
+
+```markdown
+# Founder Posts — 2026-06-08
+
+## 09:14 — [topic] · Xiaohongshu
+**Angle:** Problem-led
+**Platform:** Xiaohongshu · single
+
+**标题:** [title]
+**正文:**
+[body]
+**#标签:** #tag1 #tag2 #tag3
+
+**Cover:** ![[attachments/2026-06-08-xiaohongshu-slug-1.png]]
+```
+
+For X threads, place the full thread as numbered lines under the body; for Reddit, include **Title** and **Body**; for LinkedIn, the post body. When two angles were presented, save the one the user chose; if they did not choose, save both under labeled subsections. Never truncate post text.
+
 ---
 
 ## Platform Rules
@@ -246,6 +299,9 @@ Why this works:
 
 Self-review:
 [any rubric line that needed fixing and what you changed]
+
+Save to vault? (first draft only — reply with a folder path, `default`, or `no`)
+[omit this line once a location is chosen or saving is disabled for the session]
 ```
 
 When you present two angles, repeat the block for each, labeled by angle.
@@ -261,6 +317,8 @@ When you present two angles, repeat the block for each, labeled by angle.
 - Image rendering via `render-image.js` is optional and only for text/data graphics; on failure, degrade gracefully to the image brief. Never fabricate a product screenshot — capture the real one.
 - Keep the final text publishable, not just instructive — do not bury the draft under explanation.
 - Do not make weak or early-stage results sound more certain than they are.
+- Saving is opt-in only. Never write without explicit user consent or an upfront session-level request, and always save to the `Founder Posts/` subfolder (images to `Founder Posts/attachments/`) — never the user's daily note.
+- Always run Step 9 after every finalized draft. On the first save, resolve the location (env var, named path, or three-option prompt); afterwards auto-save unless the user chose not to save. Rendered PNGs are copied into `attachments/` and embedded with `![[...]]`; if none were rendered, save the image brief instead.
 
 ## Safety
 

@@ -15,6 +15,7 @@ A content editor for SaaS founders, indie hackers, and product builders. It turn
 - When you need a feedback request that people will actually answer
 - When you want the same material adapted to X, Reddit, LinkedIn, or Xiaohongshu norms
 - When you need an image — a Xiaohongshu cover, quote card, or data card — rendered from HTML/CSS
+- When you want finalized drafts (and their rendered images) archived to your Obsidian vault
 
 It is **not** for ad creative, generic brand copy, or posts with no underlying substance.
 
@@ -36,6 +37,7 @@ It is **not** for ad creative, generic brand copy, or posts with no underlying s
 
 **Phase 4: Review**
 9. Scores against a rubric (not-an-ad, specific, angle clear, platform fit, honest, human voice, strong open, image fit) and revises
+10. Optionally saves the finalized draft — and any rendered cover/cards — to an Obsidian vault subfolder (`Founder Posts/`), opt-in and never to your own notes
 
 ## Image Generation
 
