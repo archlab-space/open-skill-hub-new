@@ -43,8 +43,7 @@ Fixed values (not configurable):
 
 - **List:** `GET {WORKER_URL}/blogs?limit=100` → `{ items, total, offset, limit }`.
   Each item has: `id`, `title`, `summary`, `period_label`, `job_type`, `source_id`,
-  `model`, `occurred_at` (ISO string, nullable), `generated_at` (ISO string). The list
-  already excludes hidden PR/Issue digests — consume it as-is.
+  `model`, `occurred_at` (ISO string, nullable), `generated_at` (ISO string).
 - **Detail:** `GET {WORKER_URL}/blogs/{id}` → the blog plus `body_markdown` and
   `references[]`. Each reference has `type`, `title`, `url`, `html_url`. Fetch the default
   body — do not add any `?lang=` parameter.
@@ -59,9 +58,10 @@ Fixed values (not configurable):
 2. **Fetch the list:** `GET {WORKER_URL}/blogs?limit=100`. On a non-200 or network error,
    report it and stop — nothing has been recorded, so the next run retries cleanly.
 3. **Select new blogs:** keep items whose `id` is **not** in `processed_ids`. Sort the
-   survivors ascending by `occurred_at ?? generated_at` (parse ISO → ms) so you process
-   oldest first. If none remain, report "no new blogs" and finish.
-4. **Fetch each body (oldest first):** `GET {WORKER_URL}/blogs/{id}`. If the request is
+   survivors **descending** by `occurred_at ?? generated_at` (parse ISO → ms) so you
+   process the **newest first** — the most recent blogs are the most timely and should be
+   handled before older ones. If none remain, report "no new blogs" and finish.
+4. **Fetch each body (newest first):** `GET {WORKER_URL}/blogs/{id}`. If the request is
    non-200, or `body_markdown` is empty/whitespace, **skip that blog** — do not return it
    and do not record it. It will retry next run (the stored body may not have propagated
    yet). Otherwise pick a source link from `references[]`, preferring `html_url`, then
