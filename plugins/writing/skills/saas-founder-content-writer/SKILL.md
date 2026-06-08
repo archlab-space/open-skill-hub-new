@@ -299,6 +299,9 @@ Why this works:
 
 Self-review:
 [any rubric line that needed fixing and what you changed]
+
+Save to vault? (first draft only — reply with a folder path, `default`, or `no`)
+[omit this line once a location is chosen or saving is disabled for the session]
 ```
 
 When you present two angles, repeat the block for each, labeled by angle.
@@ -314,6 +317,8 @@ When you present two angles, repeat the block for each, labeled by angle.
 - Image rendering via `render-image.js` is optional and only for text/data graphics; on failure, degrade gracefully to the image brief. Never fabricate a product screenshot — capture the real one.
 - Keep the final text publishable, not just instructive — do not bury the draft under explanation.
 - Do not make weak or early-stage results sound more certain than they are.
+- Saving is opt-in only. Never write without explicit user consent or an upfront session-level request, and always save to the `Founder Posts/` subfolder (images to `Founder Posts/attachments/`) — never the user's daily note.
+- Always run Step 9 after every finalized draft. On the first save, resolve the location (env var, named path, or three-option prompt); afterwards auto-save unless the user chose not to save. Rendered PNGs are copied into `attachments/` and embedded with `![[...]]`; if none were rendered, save the image brief instead.
 
 ## Safety
 
