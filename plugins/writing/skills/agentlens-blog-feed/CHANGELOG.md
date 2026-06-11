@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.10.0] - 2026-06-11
+
+### Changed
+- Reflowed `SKILL.md` prose paragraphs and list items to natural single-line wrapping (removed manual hard line breaks). Formatting only — no content or behavior change.
+
 ## [0.1.0] - 2026-06-08
 
 ### Added
