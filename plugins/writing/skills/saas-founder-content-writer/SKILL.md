@@ -178,7 +178,7 @@ If an image helps, include an image brief:
 Image recommendation: Yes
 Purpose: [why the image improves the post]
 Format: [cover / quote card / data card / framework / comparison / changelog card]
-Aspect ratio: [3:4 for Xiaohongshu / 1:1 / 16:9]
+Aspect ratio: [3:4 for Xiaohongshu / 9:16 for YouTube Shorts / 1:1 / 16:9]
 Text on image: [short words only, no crowded paragraphs]
 Visual direction: [style, layout, colors, constraints]
 Render method: [HTML/CSS via render-image.js | image model | real screenshot]
@@ -316,6 +316,15 @@ For X threads, place the full thread as numbered lines under the body; for Reddi
 - **Self-promotion:** hard ads and off-platform redirection (external links, WeChat, "私信") are sensitive and can get a note suppressed (限流). Keep promotion soft and the value first. **Tell the founder to check Xiaohongshu's current promotion rules before posting**, the same way you would for Reddit.
 - **Default language:** write in Chinese unless the founder asks otherwise.
 
+### YouTube
+- **Deliverables:** a **title**, a **description**, and a **thumbnail brief**. The video itself comes from the video pipeline, not this skill.
+- **Default format:** 9:16 **Shorts** (1080×1920). 16:9 long-form is a configurable variant — only when the author asks.
+- **Title:** ≤ ~70 characters, front-load the hook/keyword; concrete or curiosity-driven, never clickbait the body can't pay off.
+- **Description:** first 1–2 lines must stand alone (they show before "…more"); then 2–4 lines of context; end with 3–5 hashtags including `#Shorts` for Shorts.
+- **Thumbnail:** for Shorts the cover is the vertical frame — produce a 9:16 thumbnail (big, legible text; ≤ 6 words). Render via `render-image.js` using `assets/youtube-thumbnail.html` at 1080×1920.
+- **Self-promotion:** keep links/CTAs in the description, not the title; lead with the value the viewer gets.
+- **Default language:** match the author's input.
+
 ---
 
 ## Output Format
@@ -324,7 +333,7 @@ Use this format unless the founder asks for something else:
 
 ```text
 Angle: [chosen angle]
-Platform: [X / Reddit / LinkedIn / Xiaohongshu] · [single / thread / long-form]
+Platform: [X / Reddit / LinkedIn / Xiaohongshu / YouTube] · [single / thread / long-form / short]
 
 Draft:
 [final post — for X threads, number each post; for Reddit, include Title + Body; for Xiaohongshu, include Title + Body + #tags]
