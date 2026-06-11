@@ -1,7 +1,7 @@
 ---
 name: remotion-video-pipeline
 description: >
-  Use this skill when the user wants to produce or standardize a Remotion short video — especially knowledge/explainer shorts with narration and subtitles. It orchestrates an audio-driven pipeline: script and storyboard → audio → SRT → timeline recalibration → scenes.json → Remotion render → CapCut handoff, with mandatory human gates. Delegates Remotion coding to a Remotion skill such as `remotion-best-practices`. Not for general video editing or non-Remotion pipelines.
+  Use this skill to produce a Remotion short video through an audio-driven pipeline: script → audio → SRT → timeline → scenes.json → render → CapCut handoff, with human gates. Delegates Remotion coding to a skill such as `remotion-best-practices`. Not for general video editing or non-Remotion pipelines.
 ---
 
 # Remotion Video Pipeline
@@ -75,12 +75,7 @@ After approval the script is **locked**.
 
 ### Step 2 — Audio (master timeline)
 
-Generate the narration audio. Two paths, both valid:
-
-- **AI TTS / voice cloning** — fastest; good for iterating.
-- **Self-recording** — recommended as the long-term default for a personal account: a real voice gives recognizable identity (辨识度).
-
-The skill is tool-agnostic: use whatever TTS or recording setup the user has.
+Generate the narration audio from the locked script, by either AI TTS / voice cloning or self-recording — use whatever TTS or recording setup the user has (tool-agnostic).
 Save the final take as a single audio file (e.g. `audio/voice.wav`).
 *Optional check:* offer to let the user approve the take before continuing, since everything downstream is pinned to it.
 
@@ -177,8 +172,8 @@ Field rules:
 
 ## Remotion audio: method A vs B
 
-- **Method A — render with narration baked in (default).** Remotion outputs picture + key subtitles + narration; CapCut only adds BGM/SFX. Simplest, no drift. Use this until the workflow is stable.
-- **Method B — silent render + separate voice (advanced).** Remotion outputs picture + subtitles only; CapCut imports the silent video plus `voice.wav`, BGM, and SFX separately. More post-production flexibility (precise voice volume control) at the cost of alignment risk. Recommend B only once the user is comfortable with the pipeline.
+- **Method A — render with narration baked in (default).** Remotion outputs picture + key subtitles + narration; CapCut only adds BGM/SFX. Simplest, no drift.
+- **Method B — silent render + separate voice (advanced).** Remotion outputs picture + subtitles only; CapCut imports the silent video plus `voice.wav`, BGM, and SFX separately. More post-production flexibility (precise voice volume control) at the cost of alignment risk.
 
 ## CapCut handoff bundle + checklist
 
@@ -200,7 +195,7 @@ CapCut to-do checklist:
 
 ## Tool notes
 
-- **Audio:** any TTS or self-recording. Self-recording is the recommended long-term default for a personal brand.
+- **Audio:** any TTS or self-recording (tool-agnostic).
 - **SRT:** Whisper is the documented default; any STT that emits valid SRT works. Always generate the SRT from the **final** audio file.
 - **Remotion:** defer composition code and rendering to a Remotion skill such as `remotion-best-practices`.
 - None of these tools are hard-required by this skill — confirm what the user has and adapt.
