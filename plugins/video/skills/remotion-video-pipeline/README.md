@@ -5,30 +5,25 @@
 
 ## Purpose
 
-A production-director playbook for short-form Remotion videos. It standardizes an
-**audio-driven** workflow so every video follows the same process and no step
-cascades into rework. It orchestrates and gates the pipeline; it delegates the
-actual Remotion composition code to the `remotion-best-practices` skill.
+A production-director playbook for short-form Remotion videos.
+It standardizes an **audio-driven** workflow so every video follows the same process and no step cascades into rework.
+It orchestrates and gates the pipeline; it delegates the actual Remotion composition code to a Remotion skill such as `remotion-best-practices`.
 
 The governing principle:
 
 ```
-音频 = 主时间轴   (audio = master timeline)
-SRT  = 时间标尺   (SRT  = time ruler)
-Remotion = 画面生成器  (Remotion = visuals generator)
-CapCut   = 声音/最终剪辑 (CapCut = sound + final edit)
+audio    = the master timeline
+SRT      = the time ruler
+Remotion = the visuals generator
+CapCut   = sound + final edit
 ```
 
 ## When to Use
 
-- When you want to produce a Remotion knowledge/explainer 短视频 with narration
-  and on-screen subtitles
-- When you want a repeatable script → audio → SRT → timeline → render → CapCut
-  process instead of an ad-hoc one
-- When you need the AI to recalibrate scene timing from real audio without
-  rewriting the locked script
-- When you want a structured `scenes.json` to drive Remotion instead of
-  hand-editing composition code
+- When you want to produce a Remotion knowledge/explainer short video with narration and on-screen subtitles
+- When you want a repeatable script → audio → SRT → timeline → render → CapCut process instead of an ad-hoc one
+- When you need the AI to recalibrate scene timing from real audio without rewriting the locked script
+- When you want a structured `scenes.json` to drive Remotion instead of hand-editing composition code
 
 ## The Pipeline
 
@@ -41,24 +36,20 @@ CapCut   = 声音/最终剪辑 (CapCut = sound + final edit)
    └─ 🚦 GATE 2: human confirms the timeline   (before any render)
 5. AI emits scenes.json / timeline (structured data, not hand-edited code)
 6. Remotion renders visuals + key subtitles + narration
-   (composition code delegated to remotion-best-practices)
+   (composition code delegated to a Remotion skill)
 7. Handoff bundle → CapCut
 8. CapCut: BGM / SFX / transitions / final polish   (manual; checklist only)
 ```
 
-Two mandatory STOP gates (Steps 1 and 4) protect the most expensive rework
-points. Audio approval (Step 2) and a pre-render preview (Step 6) are optional
-recommended checks.
+Two mandatory STOP gates (Steps 1 and 4) protect the most expensive rework points.
+Audio approval (Step 2) and a pre-render preview (Step 6) are optional recommended checks.
 
 ## Scope & Boundaries
 
-- Remotion short-video pipelines only — not general video editing or other
-  renderers.
-- Tool-agnostic: audio via any TTS or self-recording; SRT via any speech-to-text
-  (Whisper is the documented default). Nothing is hard-required.
-- Defers composition code and rendering to the `remotion-best-practices` skill.
-- Writes only the project's `scenes.json`/timeline and its asset folder, and
-  confirms before overwriting existing files. Handles no credentials.
+- Remotion short-video pipelines only — not general video editing or other renderers.
+- Tool-agnostic: audio via any TTS or self-recording; SRT via any speech-to-text (Whisper is the documented default). Nothing is hard-required.
+- Defers composition code and rendering to a Remotion skill such as `remotion-best-practices`.
+- Writes only the project's `scenes.json`/timeline and its asset folder, and confirms before overwriting existing files. Handles no credentials.
 
 ## Feedback & Contributions
 
