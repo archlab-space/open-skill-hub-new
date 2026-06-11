@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.10.0] - 2026-06-11
+
+### Added
+- 产品/科普 content-angle mode: 科普 (knowledge/explainer) mode drops the product gate, captures a topic profile instead, and uses knowledge angles (explainer / how-it-works / 误区纠正 / 踩坑·复盘 / comparison / "what this means for you").
+- YouTube platform rules (title / description / thumbnail brief; default 9:16 Shorts) and a 9:16 `youtube-thumbnail.html` template for `render-image.js`.
+
+### Changed
+- Broadened the skill identity (description, intro, core principle) from SaaS-only to founders **and** creators, covering knowledge content and YouTube. Skill name unchanged.
+
 ## [0.8.0] - 2026-06-08
 
 ### Added
