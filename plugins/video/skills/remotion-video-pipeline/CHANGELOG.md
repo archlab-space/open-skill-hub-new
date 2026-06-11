@@ -3,8 +3,9 @@
 ## [0.2.0] - 2026-06-11
 
 ### Added
-- Optional multi-platform packaging: produce the script→audio→SRT→timeline master once, then fan out render (per aspect-ratio profile, with safe-area reframing — never letterbox) and copy/cover per platform (小红书 3:4 / YouTube Shorts 9:16 / X), assembling a per-platform bundle + manifest.
+- Optional multi-platform packaging: produce the script→audio→SRT→timeline master once, then fan out render (per aspect-ratio profile, with safe-area reframing — never letterbox) and copy/cover per platform (Xiaohongshu 3:4 / YouTube Shorts 9:16 / X), assembling a per-platform bundle + manifest.
 - Delegation: copy/cover to `saas-founder-content-writer`; Remotion code to a Remotion skill; audio/SRT to the core pipeline. No new scripts; no auto-posting. Single-video use is unchanged.
+- English-only skill text and examples; copy/cover delegation references a content-writing skill by capability rather than a hardcoded name.
 
 ## [0.1.0] - 2026-06-11
 
