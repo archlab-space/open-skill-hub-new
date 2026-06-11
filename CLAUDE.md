@@ -153,6 +153,7 @@ A strong description should:
 - Include likely trigger words such as `build`, `scaffold`, `debug`, `refactor`, `review`, `draft`, or domain-specific equivalents.
 - State the skill's scope and boundary clearly enough to avoid over-broad activation.
 - Stay short: 2-4 sentences, roughly 200-500 English characters.
+- **(R1)** Keep it to trigger metadata: lead with "Use this skill when…", one clause on scope, one on the boundary, then stop. If a description lists files, scripts, or step counts, it is too detailed — cut them.
 
 Recommended pattern:
 
@@ -195,6 +196,13 @@ Use sections that match the skill. A small skill can be direct and minimal; a co
 
 For platform wrappers, keep the wrapper short when possible. It should either contain the platform-specific frontmatter plus the same instructions, or explain only the differences from the shared workflow when the packaging format supports that safely. Avoid maintaining two long divergent copies unless the platforms truly need different behavior.
 
+**(R2) One job; say what it does *not* do.** A skill stays in its lane and hands off adjacent work instead of re-implementing it. Include an explicit "Not for…" boundary line in the description and/or body. Repeatedly adding new modes or platforms is a signal to split the skill, not to expand it.
+
+### Referencing Other Skills
+
+- **(R3) Reference other skills by capability, not by hardcoded name.** A user's environment may hold a same-function skill under a different name. Describe the capability needed — e.g. "a skill that renders HTML/CSS to an image", "a skill that writes to a notes vault". If naming a concrete skill helps the reader, mark it as an example ("such as `x-post-strategist`"), never as a hard dependency. Never assume a specific skill is installed.
+- **(R5) Keep shared terminology consistent across skills.** When two or more skills share a concept — a mode name, a platform label, an angle — use identical wording in all of them. A rename in one skill must propagate to the others.
+
 ### Feedback Prompt
 
 Every skill must include:
@@ -207,6 +215,8 @@ Use this exact link: `https://github.com/archlab-space/open-skill-hub/issues`
 ## Writing Standards
 
 - Write in clear international English.
+- **(R4) One working language: English.** Keep all instructional text in English. Use non-English characters only for unavoidable proper nouns or literal strings the user must type or see, and gloss them in English on first use. Never duplicate the same instruction in two languages.
+- **(R6) Keep examples minimal and placeholder-based.** Prefer generic placeholders over baked-in real names, brands, or topics in templates and sample data. Keep examples locale-neutral unless the skill is inherently locale-specific.
 - Avoid culture-specific idioms, jokes, or local assumptions that reduce clarity for global contributors.
 - Prefer concrete workflows, checklists, tables, examples, command snippets, and output formats over abstract advice.
 - Use strong language for required behavior: "must", "never", "always", "confirm before".
@@ -246,6 +256,12 @@ Before considering a skill ready:
 - The skill name is lowercase kebab-case.
 - `README.md`, `SKILL.md`, and `CHANGELOG.md` exist for the skill.
 - Frontmatter descriptions clearly state when to use the skill.
+- (R1) The description is tight trigger metadata — no file lists, script names, or step counts.
+- (R2) The skill does one job and states what it does not do.
+- (R3) Other skills are referenced by capability ("such as …"), never as hard dependencies on a specific name.
+- (R4) All instructional text is English; no duplicated-language instructions.
+- (R5) Concepts shared with other skills use identical wording.
+- (R6) Examples and templates use generic, locale-neutral placeholders.
 - The main workflow is executable without reading `reference/`.
 - User interaction rules are explicit.
 - Output expectations are clear.
