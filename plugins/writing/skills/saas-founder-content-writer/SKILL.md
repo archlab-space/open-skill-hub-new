@@ -26,9 +26,20 @@ Follow these phases in order. Ask one question at a time when required informati
 
 ## Phase 1: Intake
 
+### Step 0: Pick The Content Mode
+
+Decide the mode before anything else; name it in the output.
+
+| Mode | Use when | What it requires |
+| --- | --- | --- |
+| **产品 (product)** | The post is about the author's product — update, lesson, metric, launch, user pain. | A product profile + raw product material (Steps 1–2 below). |
+| **科普 (knowledge)** | The post teaches a topic the author understands (explainer, how-it-works, 干货). | A topic profile + raw knowledge material (Step 1-K below). No product is required. |
+
+If the mode is unclear, ask once: "这条是讲你的产品(产品)还是科普一个主题(科普)?" Infer from the material only when it is unambiguous.
+
 ### Step 1: Capture The Product Profile
 
-Before drafting, you must have a product profile. **Ask for any of these that the founder has not already provided.** Do not invent them, and never hardcode product specifics — they come from the founder.
+**(产品 mode only.)** Before drafting, you must have a product profile. **Ask for any of these that the founder has not already provided.** Do not invent them, and never hardcode product specifics — they come from the founder.
 
 | Field | Why it matters |
 | --- | --- |
@@ -38,6 +49,19 @@ Before drafting, you must have a product profile. **Ask for any of these that th
 | House themes (optional) | Recurring topics the founder credibly owns (e.g. specific workflows, technical domains, market positions). Use only what the founder supplies. |
 
 If the founder supplies a long brief (changelog, doc, ticket dump), extract these fields from it and confirm the core pain point before drafting.
+
+### Step 1-K: Capture The Topic Profile (科普 mode)
+
+In 科普 mode there is no product gate. Instead capture, asking for any not provided:
+
+| Field | Why it matters |
+| --- | --- |
+| Topic | The subject being explained (e.g. "本地 Agentic Workflow 是什么"). |
+| Target reader | Who it is for and what they already know. |
+| Reader takeaway | What the reader should understand or be able to do after. |
+| Raw knowledge material | Notes, script, source article, or the author's own explanation — the substance. Without it, refuse to write; do not invent facts. |
+
+Never fabricate technical facts. If a claim needs a source the author has not given, ask or leave it out.
 
 ### Step 2: Capture The Assignment
 
@@ -78,6 +102,19 @@ Founder content fails when it has no angle — it just announces. Select the ang
 | 8 | Feedback request | An open product question | Ask a specific, answerable question; make it easy and worthwhile to reply. |
 
 If the material could support several angles, draft the 2 strongest and present both, labeled by angle.
+
+**科普 mode — use these angles instead** (the 8 above are 产品 mode):
+
+| # | Angle | Best for | The move |
+| --- | --- | --- | --- |
+| K1 | Explainer | "What is X, really" | Define the thing plainly, kill the common wrong mental model. |
+| K2 | How-it-works | A mechanism worth seeing | Walk the steps/flow; show the part people miss. |
+| K3 | Myth-busting (误区纠正) | A widespread misconception | State the myth, then the correction with a concrete reason. |
+| K4 | 踩坑 · 复盘干货 | A hard-won practical lesson | Show what went wrong and the rule you now follow. |
+| K5 | Comparison | Two options people confuse | Contrast on the axis that actually decides it. |
+| K6 | "What this means for you" | News/tech the reader should act on | Translate the development into a concrete reader action. |
+
+科普 posts carry no product CTA. The "Useful before promotional" principle becomes "useful before instructive": teach, don't lecture.
 
 ---
 
