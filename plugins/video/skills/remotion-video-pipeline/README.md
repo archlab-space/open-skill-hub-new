@@ -44,6 +44,10 @@ CapCut   = sound + final edit
 Two mandatory STOP gates (Steps 1 and 4) protect the most expensive rework points.
 Audio approval (Step 2) and a pre-render preview (Step 6) are optional recommended checks.
 
+## Multi-platform packaging (optional)
+
+When you want one topic packaged for several platforms — Xiaohongshu (3:4), YouTube Shorts (9:16), and X — the pipeline produces the script → audio → SRT → timeline master **once**, then fans out only the render (re-framed per aspect ratio, never letterboxed) and the copy/cover per platform. Copy and covers/thumbnails are delegated to a content-writing skill (such as `saas-founder-content-writer`), and the result is a per-platform bundle plus a manifest for you to review and publish. Single-platform use is unchanged.
+
 ## Scope & Boundaries
 
 - Remotion short-video pipelines only — not general video editing or other renderers.

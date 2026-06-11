@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.0] - 2026-06-11
+
+### Changed
+- Tightened the frontmatter description to trigger-only metadata under 500 characters and a single natural-wrapping line (R1); dropped the inline file-list parenthetical.
+
 ## [0.1.0] - 2026-06-02
 - Initial release of `readme-writer`: a skill that analyzes a code repository and drafts or audits a
   clear, structured README built from real commands and examples rather than invented content.

@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.0] - 2026-06-11
+
+### Changed
+- Tightened the frontmatter description to under 500 characters and a single natural-wrapping line (R1), trimming the workflow/markup lists while keeping the answer-engine triggers and the "Not for…" boundary.
+
 ## [0.1.0] - 2026-06-02
 - Initial release of `geo-first-seo`: an end-to-end Generative Engine Optimization (GEO) skill that
   helps content get cited by AI answer engines (ChatGPT, Perplexity, Google AI Overviews, Gemini,

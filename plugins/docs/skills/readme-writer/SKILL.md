@@ -1,12 +1,7 @@
 ---
 name: readme-writer
 description: >
-  Use this skill when the user wants to write, generate, improve, audit, or rewrite a README for a
-  code repository. The skill inspects the repo (manifest files, entry points, scripts, license, CI,
-  existing docs) to detect the project type and draft a structured README from real commands and
-  examples, asking the user only for intent it cannot infer. It also audits an existing README,
-  preserving good content and reporting what changed. Not for marketing landing pages, API reference
-  sites, or prose unrelated to a code repository.
+  Use this skill when the user wants to write, generate, improve, audit, or rewrite a README for a code repository. It inspects the repo to detect the project type and drafts a structured README from real commands and examples, asking only for intent it cannot infer; it can also audit an existing README, preserving good content and reporting what changed. Not for marketing landing pages, API reference sites, or prose unrelated to a code repository.
 ---
 
 # README Writer

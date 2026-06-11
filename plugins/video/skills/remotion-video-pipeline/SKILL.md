@@ -53,22 +53,22 @@ Steps 2 (audio approval) and 6 (pre-render preview) have *optional* recommended 
 
 This is the creative stage. Produce all of:
 
-- **Spoken script (口播脚本):** the narration, sentence by sentence.
-- **On-screen text (屏幕大字):** the big key phrase / quote cards (金句卡片).
-- **Storyboard (分镜):** scene-by-scene breakdown with rough durations.
-- **Shot types (画面类型):** title card / diagram / list / quote, per scene.
-- **Asset list (素材清单):** images, logos, icons, screenshots needed.
+- **Spoken script:** the narration, sentence by sentence.
+- **On-screen text:** the big key phrase / quote cards.
+- **Storyboard:** scene-by-scene breakdown with rough durations.
+- **Shot types:** title card / diagram / list / quote, per scene.
+- **Asset list:** images, logos, icons, screenshots needed.
 
 Give scenes stable IDs (`S01`, `S02`, …) — these IDs travel through the whole pipeline.
 
 **🚦 GATE 1 — confirm the script.**
 Before generating any audio, ask the user to confirm the script against this checklist (one pass, then revise as needed):
 
-- Does each line sound natural when spoken? (这句话是否自然？)
-- Is the pacing right for short-form? (节奏是否适合短视频？)
-- Anything too written/formal for speech? (有没有太书面化？)
-- Any redundancy? (有没有重复？)
-- Which lines deserve a big-text card? (哪句适合做大字卡片的金句？)
+- Does each line sound natural when spoken?
+- Is the pacing right for short-form?
+- Anything too written/formal for speech?
+- Any redundancy?
+- Which lines deserve a big-text card (a key quote)?
 
 Do not proceed until the user explicitly approves.
 After approval the script is **locked**.
@@ -93,8 +93,8 @@ This is the most important step.
 Using the SRT's real timestamps, re-derive:
 
 - **Scene start/end times** — replace the storyboard's guessed durations with the audio's real rhythm.
-- **Subtitle breaks (字幕断句)** — how lines split across the on-screen subtitle.
-- **Animation cues (动画出现点)** — when each title/card/diagram appears.
+- **Subtitle breaks** — how lines split across the on-screen subtitle.
+- **Animation cues** — when each title/card/diagram appears.
 
 **Non-negotiable rule: recalibrate timing only. Never rewrite the script.**
 The words are frozen at Step 1; here you only move them in time.
@@ -116,7 +116,7 @@ Do not render until approved.
 ### Step 5 — Emit `scenes.json` / timeline
 
 Output the approved timeline as **structured data**, not hand-edited Remotion code.
-This keeps renders deterministic and reviewable, and prevents the AI from randomly editing the composition (乱改代码).
+This keeps renders deterministic and reviewable, and prevents the AI from randomly editing the composition.
 See the contract below.
 
 ### Step 6 — Render with Remotion
@@ -162,8 +162,8 @@ Authoring units are **seconds**; the composition converts to frames with `frames
       "startSec": 0,                    // scene in-point (seconds)
       "endSec": 2.8,                    // scene out-point (seconds)
       "type": "hook-title",             // shot type (open vocabulary)
-      "mainText": "Apple Core AI 到底是什么？",  // the big on-screen text
-      "subtitle": "不是 Apple 版 ChatGPT",       // supporting line / caption
+      "mainText": "What is X, really?",  // the big on-screen text
+      "subtitle": "the one-line caption",       // supporting line / caption
       "animation": "title-pop-in"        // entrance/animation cue (open vocab)
     }
   ]
@@ -199,6 +199,42 @@ CapCut to-do checklist:
 - [ ] Add transition sounds where scenes cut.
 - [ ] Balance voice / BGM / SFX volume.
 - [ ] Final polish (trims, timing nudges, export settings).
+
+## Multi-platform packaging (optional)
+
+Use this only when the user wants the **same topic** packaged for **multiple platforms** (Xiaohongshu / YouTube Shorts / X). A single-platform request runs Steps 1–8 above exactly as before — do not trigger this section.
+
+**Key idea:** the script → audio → SRT → timeline (`scenes.json`) master is platform-agnostic and is produced **once** (Steps 1–5, both gates unchanged). Only the **render** (aspect ratio + safe-area layout) and the **copy/cover** fan out per platform.
+
+Flow:
+
+1. Run Steps 1–5 once → the shared master `scenes.json`.
+2. Resolve inputs: **angle** (Product/Knowledge) + **target platforms**.
+3. For each target platform (copy/cover can run alongside renders — they do not depend on the rendered video):
+   - **Render** at the platform profile: re-emit `scenes.json` `meta` (width/height/fps) for the target ratio and **reposition key text into that ratio's safe area**, then render (delegate composition to a Remotion skill such as `remotion-best-practices`).
+   - **Copy + cover**: invoke a content-writing skill that turns a topic + angle into platform copy and a rendered cover/thumbnail (such as `saas-founder-content-writer`); it returns the title/body/tags (or title/description) and the cover/thumbnail PNG.
+4. Assemble the bundle + manifest (below).
+
+**Platform → profile map:**
+
+| Platform | Video | Cover | Copy deliverables |
+| --- | --- | --- | --- |
+| Xiaohongshu | 3:4 · 1080×1440 | 3:4 · 1080×1440 | Title (≤~20 impactful chars) · Body (<~1000) · 5–10 #tags |
+| YouTube Shorts | 9:16 · 1080×1920 | 9:16 · 1080×1920 | title · description (+ #Shorts) |
+| X | 1:1 · 1080×1080 (or 16:9), or an image card | — (or image card) | single post or thread (≤280 non-Premium) |
+
+**Reframing rule:** changing aspect ratio (e.g. 3:4 → 9:16) is a **re-render with repositioned safe-area text — never a letterbox, pad, or crop** of one render. Re-emit a per-profile `scenes.json` and let the composition lay out for that frame.
+
+**Output bundle + manifest:**
+```
+out/<topic-slug>/
+  xiaohongshu/  video.mp4  cover.png  copy.md     (Title / Body / #tags)
+  youtube/      video.mp4  cover.png  copy.md     (title / description)
+  x/            video.mp4 | image.png  copy.md    (post / thread)
+  manifest.md                                      (topic, angle, per-platform status + file paths)
+```
+
+**Boundaries:** this layer owns the profile map, the reframing rule, the fan-out order, and the bundle/manifest. It delegates copy/cover to a content-writing skill (such as `saas-founder-content-writer`), Remotion code to a Remotion skill, and audio/SRT to the core pipeline above. It adds no scripts and never auto-posts — the bundle is for the user to review and publish.
 
 ## Tool notes
 

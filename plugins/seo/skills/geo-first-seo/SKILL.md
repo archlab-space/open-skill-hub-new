@@ -1,12 +1,7 @@
 ---
 name: geo-first-seo
 description: >
-  Use this skill when the user wants to make content more likely to be cited or surfaced by AI
-  answer engines (ChatGPT, Perplexity, Google AI Overviews, Gemini, Copilot) — i.e. Generative
-  Engine Optimization / GEO / "AI SEO". Covers an end-to-end workflow: GEO strategy and query
-  research, creating new GEO-optimized content or auditing/rewriting an existing page or article,
-  technical markup (schema.org JSON-LD, llms.txt, FAQ/heading structure), and a GEO scorecard.
-  Not for traditional keyword-ranking SEO audits, paid ads, or link-building campaigns.
+  Use this skill when the user wants to make content more likely to be cited or surfaced by AI answer engines (ChatGPT, Perplexity, Google AI Overviews, Gemini, Copilot) — i.e. Generative Engine Optimization (GEO / "AI SEO"). Covers GEO strategy and query research, creating or auditing/rewriting a page for GEO, technical markup (schema.org JSON-LD, llms.txt, FAQ structure), and a GEO scorecard. Not for traditional keyword-ranking SEO, paid ads, or link-building.
 ---
 
 # GEO-First SEO

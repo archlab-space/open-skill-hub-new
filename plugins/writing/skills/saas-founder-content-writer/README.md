@@ -5,16 +5,17 @@
 
 ## Purpose
 
-A content editor for SaaS founders, indie hackers, and product builders. It turns what a founder actually knows — product updates, support tickets, technical lessons, usage data, and personal observations — into high-signal posts for X, Reddit, LinkedIn, and Xiaohongshu (小红书). It refuses to write generic marketing copy: posts earn attention by being specific, honest, and useful to the reader first.
+A content editor for founders and creators — SaaS founders, indie hackers, and product builders. It turns what the author actually knows — product updates, support tickets, technical lessons, usage data, personal observations, or a topic they can teach — into high-signal posts for X, Reddit, LinkedIn, Xiaohongshu, and YouTube. It works in two modes: a **Product** mode for posts about your own product, and a **Knowledge** mode for teaching a topic with no product gate. It refuses to write generic marketing copy: posts earn attention by being specific, honest, and useful to the reader first.
 
 ## When to Use
 
 - When you have a product update, launch, or changelog and want a post that leads with what users can now do
 - When a user pain point, support pattern, or piece of feedback could become a useful public post
 - When you want to share a build-in-public metric, a lesson learned, or a market opinion
+- When you want to teach or explain a topic (Knowledge mode) — explainer, how-it-works, myth-busting, pitfalls·retrospective — with no product to pitch
 - When you need a feedback request that people will actually answer
-- When you want the same material adapted to X, Reddit, LinkedIn, or Xiaohongshu norms
-- When you need an image — a Xiaohongshu cover, quote card, or data card — rendered from HTML/CSS
+- When you want the same material adapted to X, Reddit, LinkedIn, Xiaohongshu, or YouTube norms
+- When you need an image — a Xiaohongshu cover, a YouTube 9:16 thumbnail, a quote card, or a data card — rendered from HTML/CSS
 - When you want finalized drafts (and their rendered images) archived to your Obsidian vault
 
 It is **not** for ad creative, generic brand copy, or posts with no underlying substance.
@@ -22,17 +23,18 @@ It is **not** for ad creative, generic brand copy, or posts with no underlying s
 ## What It Does
 
 **Phase 1: Intake**
-1. Captures a portable product profile (category, users, pain point, optional house themes) — never hardcoded
+0. Picks the content mode — Product or Knowledge
+1. In Product mode, captures a portable product profile (category, users, pain point, optional house themes) — never hardcoded; in Knowledge mode, captures a topic profile (topic, target reader, takeaway, raw knowledge material) with no product gate
 2. Captures the assignment (raw material, platform, format) and refuses to draft without real material
 3. Sets the goal and reader takeaway
 
 **Phase 2: Choose the angle**
-4. Selects from 8 founder content angles (problem-led, build-in-public, demo-led, lesson learned, opinion, user pain analysis, launch/changelog, feedback request)
+4. Selects from 8 product angles (Product mode) or 6 knowledge angles (Knowledge mode: explainer, how-it-works, myth-busting, pitfalls·retrospective, comparison, "what this means for you")
 
 **Phase 3: Draft**
 5. Applies six writing principles (specific, useful-before-promotional, honest, scene-first, no forced profundity, no hype) with before/after examples
-6. Applies platform rules for X, Reddit, LinkedIn, and Xiaohongshu
-7. Decides whether an image helps (Xiaohongshu always needs a cover) and, for text/data graphics, renders it from HTML/CSS
+6. Applies platform rules for X, Reddit, LinkedIn, Xiaohongshu, and YouTube
+7. Decides whether an image helps (Xiaohongshu always needs a cover; YouTube Shorts uses a 9:16 thumbnail) and, for text/data graphics, renders it from HTML/CSS
 8. Writes an open that earns the next line
 
 **Phase 4: Review**
@@ -41,7 +43,7 @@ It is **not** for ad creative, generic brand copy, or posts with no underlying s
 
 ## Image Generation
 
-For text- and data-driven graphics — Xiaohongshu covers and image cards, quote cards, data/metric cards, frameworks, comparisons, changelog cards — the skill can render a PNG from HTML/CSS using headless Chrome (`scripts/render-image.js`, Puppeteer-based). This is deterministic and batchable. Photographic images and real product screenshots are out of scope for the renderer. First-time setup is in [`render-image-setup.md`](render-image-setup.md); example templates live in `assets/`.
+For text- and data-driven graphics — Xiaohongshu covers and image cards, YouTube 9:16 Shorts thumbnails, quote cards, data/metric cards, frameworks, comparisons, changelog cards — the skill can render a PNG from HTML/CSS using headless Chrome (`scripts/render-image.js`, Puppeteer-based). This is deterministic and batchable. Photographic images and real product screenshots are out of scope for the renderer. First-time setup is in [`render-image-setup.md`](render-image-setup.md); example templates live in `assets/` (including `youtube-thumbnail.html` for 9:16 Shorts).
 
 ## Notes
 
