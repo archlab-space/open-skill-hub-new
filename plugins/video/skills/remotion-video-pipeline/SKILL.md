@@ -200,6 +200,42 @@ CapCut to-do checklist:
 - [ ] Balance voice / BGM / SFX volume.
 - [ ] Final polish (trims, timing nudges, export settings).
 
+## Multi-platform packaging (optional)
+
+Use this only when the user wants the **same topic** packaged for **multiple platforms** (小红书 / YouTube Shorts / X). A single-platform request runs Steps 1–8 above exactly as before — do not trigger this section.
+
+**Key idea:** the script → audio → SRT → timeline (`scenes.json`) master is platform-agnostic and is produced **once** (Steps 1–5, both gates unchanged). Only the **render** (aspect ratio + safe-area layout) and the **copy/cover** fan out per platform.
+
+Flow:
+
+1. Run Steps 1–5 once → the shared master `scenes.json`.
+2. Resolve inputs: **angle** (`产品`/`科普`) + **target platforms**.
+3. For each target platform (copy/cover can run alongside renders — they do not depend on the rendered video):
+   - **Render** at the platform profile: re-emit `scenes.json` `meta` (width/height/fps) for the target ratio and **reposition key text into that ratio's safe area**, then render (delegate composition to a Remotion skill such as `remotion-best-practices`).
+   - **Copy + cover**: invoke `saas-founder-content-writer` with the angle + platform; it returns the title/body/tags (or title/description) and the cover/thumbnail PNG.
+4. Assemble the bundle + manifest (below).
+
+**Platform → profile map:**
+
+| Platform | Video | Cover | Copy deliverables |
+| --- | --- | --- | --- |
+| 小红书 | 3:4 · 1080×1440 | 3:4 · 1080×1440 | 标题 (≤~20 impactful chars) · 正文 (<~1000) · 5–10 #标签 |
+| YouTube Shorts | 9:16 · 1080×1920 | 9:16 · 1080×1920 | title · description (+ #Shorts) |
+| X | 1:1 · 1080×1080 (or 16:9), or an image card | — (or image card) | single post or thread (≤280 non-Premium) |
+
+**Reframing rule:** changing aspect ratio (e.g. 3:4 → 9:16) is a **re-render with repositioned safe-area text — never a letterbox, pad, or crop** of one render. Re-emit a per-profile `scenes.json` and let the composition lay out for that frame.
+
+**Output bundle + manifest:**
+```
+out/<topic-slug>/
+  xiaohongshu/  video.mp4  cover.png  copy.md     (标题 / 正文 / #标签)
+  youtube/      video.mp4  cover.png  copy.md     (title / description)
+  x/            video.mp4 | image.png  copy.md    (post / thread)
+  manifest.md                                      (topic, angle, per-platform status + file paths)
+```
+
+**Boundaries:** this layer owns the profile map, the reframing rule, the fan-out order, and the bundle/manifest. It delegates copy/cover to `saas-founder-content-writer`, Remotion code to a Remotion skill, and audio/SRT to the core pipeline above. It adds no scripts and never auto-posts — the bundle is for the user to review and publish.
+
 ## Tool notes
 
 - **Audio:** any TTS or self-recording (tool-agnostic).
