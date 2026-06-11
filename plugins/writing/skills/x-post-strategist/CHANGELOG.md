@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.10.0] - 2026-06-11
+
+### Changed
+- Authoring-standards compliance: added a "Not for…" scope boundary to the description (R2), and reworded the vault-write step to reference a notes-vault skill by capability ("a skill that writes to your notes vault, such as an `obsidian` skill") rather than by hardcoded name (R3), matching `saas-founder-content-writer` (R5). Bilingual EN/ZH voice examples retained intentionally.
+
 ## [0.7.3] - 2026-06-08
 
 ### Changed

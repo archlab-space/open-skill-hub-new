@@ -4,7 +4,8 @@ description: >
   Use this skill when the user wants to turn ideas, notes, articles, reports, or
   technical material into compelling X posts or threads. Covers single posts and
   multi-tweet threads, tone matching, and character-limit handling for Standard
-  and Premium accounts.
+  and Premium accounts. Not for other platforms (LinkedIn, Reddit, Xiaohongshu),
+  long-form articles, or auto-posting on the user's behalf.
 ---
 
 # X Post Strategist
@@ -347,7 +348,7 @@ Saving is **opt-in only**. Generated drafts go to a dedicated subfolder in the u
 **Cadence:** Once a path or the default is chosen (or saving was enabled upfront), auto-save every finalized draft for the rest of the session — do not ask again. The user may skip an individual draft by saying so.
 
 **Who writes the file:**
-1. If an `obsidian` skill is available in this environment, delegate the create/append to it. Pass the **already-resolved absolute path** and the content — never a path containing a shell variable like `$OBSIDIAN_VAULT_PATH`. It handles vault initialization and paths with spaces.
+1. If a skill that writes to your notes vault (such as an `obsidian` skill) is available, delegate the create/append to it. Pass the **already-resolved absolute path** and the content — never a path containing a shell variable like `$OBSIDIAN_VAULT_PATH`. It handles vault initialization and paths with spaces.
 2. If no `obsidian` skill is available, write the file directly with this platform's file-write capability (for example `Write` in Claude Code, `write_file` in Hermes). Create the `X Posts/` folder if needed.
 3. If the write fails for any reason, **do not lose the content**: paste the finalized markdown block in the chat so the user can copy it manually.
 
