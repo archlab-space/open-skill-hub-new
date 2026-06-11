@@ -1,0 +1,41 @@
+{
+  "name": "open-skill-hub-video",
+  "version": "0.1.0",
+  "description": "Video production workflow skills for AI agents.",
+  "author": {
+    "name": "devasher",
+    "email": "hlxstc680@gmail.com",
+    "url": "https://archlab.space"
+  },
+  "homepage": "https://github.com/archlab-space/open-skill-hub",
+  "repository": "https://github.com/archlab-space/open-skill-hub",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "video",
+    "remotion"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Video",
+    "shortDescription": "Video production workflows",
+    "longDescription": "Open Skill Hub Video packages reusable video production workflow skills for AI coding agents, starting with an audio-driven Remotion short-video pipeline.",
+    "developerName": "devasher",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Help me produce a Remotion short video from this idea."
+    ],
+    "websiteURL": "https://github.com/archlab-space/open-skill-hub",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "brandColor": "#0A84FF",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "screenshots": []
+  }
+}
