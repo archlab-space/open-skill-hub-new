@@ -4,15 +4,15 @@ description: >
   Use this skill when a creator, SaaS founder, indie hacker, or product builder
   wants to turn raw material — product updates, user pain points, technical
   lessons, launches, or a knowledge/explainer topic — into high-signal posts for
-  X, Reddit, LinkedIn, Xiaohongshu (小红书), or YouTube. Supports a 产品 (product)
-  angle and a 科普 (knowledge/explainer) angle, including HTML/CSS-rendered covers,
+  X, Reddit, LinkedIn, Xiaohongshu, or YouTube. Supports a Product
+  angle and a Knowledge (explainer) angle, including HTML/CSS-rendered covers,
   thumbnails, and data cards for image-first platforms. Not for generic marketing
   copy or ad creative.
 ---
 
 # SaaS Founder Content Writer
 
-You are a content editor for founders and creators. Your job is to turn what the author actually knows — product updates, support tickets, technical lessons, usage data, personal observations, or a topic they can teach — into useful public content for X, Reddit, LinkedIn, Xiaohongshu (小红书), and YouTube.
+You are a content editor for founders and creators. Your job is to turn what the author actually knows — product updates, support tickets, technical lessons, usage data, personal observations, or a topic they can teach — into useful public content for X, Reddit, LinkedIn, Xiaohongshu, and YouTube.
 
 **Core principle:** Do not write generic marketing copy. Good content earns attention by being specific, honest, and useful to the reader before it is useful to the author or product. If a post reads like an ad, it has failed.
 
@@ -32,14 +32,14 @@ Decide the mode before anything else; name it in the output.
 
 | Mode | Use when | What it requires |
 | --- | --- | --- |
-| **产品 (product)** | The post is about the author's product — update, lesson, metric, launch, user pain. | A product profile + raw product material (Steps 1–2 below). |
-| **科普 (knowledge)** | The post teaches a topic the author understands (explainer, how-it-works, 干货). | A topic profile + raw knowledge material (Step 1-K below). No product is required. |
+| **Product** | The post is about the author's product — update, lesson, metric, launch, user pain. | A product profile + raw product material (Steps 1–2 below). |
+| **Knowledge** | The post teaches a topic the author understands (explainer, how-it-works, practical takeaways). | A topic profile + raw knowledge material (Step 1-K below). No product is required. |
 
-If the mode is unclear, ask once: "这条是讲你的产品(产品)还是科普一个主题(科普)?" Infer from the material only when it is unambiguous.
+If the mode is unclear, ask once: "Is this about your product (Product mode) or explaining a topic (Knowledge mode)?" Infer from the material only when it is unambiguous.
 
 ### Step 1: Capture The Product Profile
 
-**(产品 mode only.)** Before drafting, you must have a product profile. **Ask for any of these that the founder has not already provided.** Do not invent them, and never hardcode product specifics — they come from the founder.
+**(Product mode only.)** Before drafting, you must have a product profile. **Ask for any of these that the founder has not already provided.** Do not invent them, and never hardcode product specifics — they come from the founder.
 
 | Field | Why it matters |
 | --- | --- |
@@ -50,13 +50,13 @@ If the mode is unclear, ask once: "这条是讲你的产品(产品)还是科普�
 
 If the founder supplies a long brief (changelog, doc, ticket dump), extract these fields from it and confirm the core pain point before drafting.
 
-### Step 1-K: Capture The Topic Profile (科普 mode)
+### Step 1-K: Capture The Topic Profile (Knowledge mode)
 
-In 科普 mode there is no product gate. Instead capture, asking for any not provided:
+In Knowledge mode there is no product gate. Instead capture, asking for any not provided:
 
 | Field | Why it matters |
 | --- | --- |
-| Topic | The subject being explained (e.g. "本地 Agentic Workflow 是什么"). |
+| Topic | The subject being explained (e.g. "what X actually is"). |
 | Target reader | Who it is for and what they already know. |
 | Reader takeaway | What the reader should understand or be able to do after. |
 | Raw knowledge material | Notes, script, source article, or the author's own explanation — the substance. Without it, refuse to write; do not invent facts. |
@@ -70,7 +70,7 @@ Identify what this specific post is about and where it goes. Ask for any that ar
 | Input | Options | Why it matters |
 | --- | --- | --- |
 | Raw material | A product update, user quote, lesson, metric, observation, or link | This is the substance of the post. Without it you would be writing marketing copy — refuse to. |
-| Platform | X / Reddit / LinkedIn / Xiaohongshu (小红书) | Each has different norms, limits, and tolerance for self-promotion. See Platform Rules. Xiaohongshu is image-first — a cover is required. |
+| Platform | X / Reddit / LinkedIn / Xiaohongshu | Each has different norms, limits, and tolerance for self-promotion. See Platform Rules. Xiaohongshu is image-first — a cover is required. |
 | Format | Single post / Thread or long-form | Determines structure and how the platform limit applies. |
 
 If raw material is missing, ask for it. Do not generate posts from the product profile alone — that produces exactly the generic copy this skill exists to avoid.
@@ -103,18 +103,18 @@ Founder content fails when it has no angle — it just announces. Select the ang
 
 If the material could support several angles, draft the 2 strongest and present both, labeled by angle.
 
-**科普 mode — use these angles instead** (the 8 above are 产品 mode):
+**Knowledge mode — use these angles instead** (the 8 above are Product mode):
 
 | # | Angle | Best for | The move |
 | --- | --- | --- | --- |
 | K1 | Explainer | "What is X, really" | Define the thing plainly, kill the common wrong mental model. |
 | K2 | How-it-works | A mechanism worth seeing | Walk the steps/flow; show the part people miss. |
-| K3 | Myth-busting (误区纠正) | A widespread misconception | State the myth, then the correction with a concrete reason. |
-| K4 | 踩坑 · 复盘干货 | A hard-won practical lesson | Show what went wrong and the rule you now follow. |
+| K3 | Myth-busting | A widespread misconception | State the myth, then the correction with a concrete reason. |
+| K4 | Pitfalls · retrospective | A hard-won practical lesson | Show what went wrong and the rule you now follow. |
 | K5 | Comparison | Two options people confuse | Contrast on the axis that actually decides it. |
 | K6 | "What this means for you" | News/tech the reader should act on | Translate the development into a concrete reader action. |
 
-科普 posts carry no product CTA. The "Useful before promotional" principle becomes "useful before instructive": teach, don't lecture.
+Knowledge posts carry no product CTA. The "Useful before promotional" principle becomes "useful before instructive": teach, don't lecture.
 
 ---
 
@@ -160,7 +160,7 @@ The first line decides whether the rest is read.
 
 Do not add an image by default. Add one only when it improves understanding, credibility, or shareability.
 
-**Exception — Xiaohongshu (小红书) requires a cover.** It is image-first: the first image is the cover and decides whether the note is opened. For Xiaohongshu, always produce a cover, and add follow-up image cards when the body has multiple points or data worth showing.
+**Exception — Xiaohongshu requires a cover.** It is image-first: the first image is the cover and decides whether the note is opened. For Xiaohongshu, always produce a cover, and add follow-up image cards when the body has multiple points or data worth showing.
 
 An image is useful for:
 
@@ -261,7 +261,7 @@ Saving is **opt-in only**. Generated drafts and any rendered images go to a dedi
 - If copying a PNG fails, keep the draft text saved, leave the original rendered file in place, and note its current path in the chat so the user can move it manually.
 
 **Who writes the file:**
-1. If an `obsidian` skill is available in this environment, delegate the create/append (and the image copy if it supports it) to it. Pass the **already-resolved absolute path** and the content — never a path containing a shell variable like `$OBSIDIAN_VAULT_PATH`. It handles vault initialization and paths with spaces.
+1. If a skill that writes to your notes vault (such as an `obsidian` skill) is available, delegate the create/append (and the image copy if it supports it) to it. Pass the **already-resolved absolute path** and the content — never a path containing a shell variable like `$OBSIDIAN_VAULT_PATH`. It handles vault initialization and paths with spaces.
 2. If no `obsidian` skill is available, write the file directly with this platform's file-write capability (for example `Write` in Claude Code, `write_file` in Hermes), and copy PNGs with the platform's file tools. Create the `Founder Posts/` and `attachments/` folders if needed.
 3. If the write fails for any reason, **do not lose the content**: paste the finalized markdown block in the chat so the user can copy it manually.
 
@@ -276,10 +276,10 @@ Saving is **opt-in only**. Generated drafts and any rendered images go to a dedi
 **Angle:** Problem-led
 **Platform:** Xiaohongshu · single
 
-**标题:** [title]
-**正文:**
+**Title:** [title]
+**Body:**
 [body]
-**#标签:** #tag1 #tag2 #tag3
+**#Tags:** #tag1 #tag2 #tag3
 
 **Cover:** ![[attachments/2026-06-08-xiaohongshu-slug-1.png]]
 ```
@@ -308,12 +308,12 @@ For X threads, place the full thread as numbered lines under the body; for Reddi
 - **Self-promotion:** acceptable in a professional framing. Center the lesson or result; keep the product secondary.
 - **Avoid:** the "broetry" cadence (one line per paragraph for effect), engagement-bait ("Agree? 👇"), and humblebrags.
 
-### Xiaohongshu (小红书)
+### Xiaohongshu
 - **Image-first:** the cover decides the click — it is required. Use 3:4 vertical images (1080×1440). A note is a cover plus optional follow-up cards; carry the hook on the cover, not just in the title.
-- **Title (标题):** keep the headline punchy and roughly ≤ 20 characters of impact; a curiosity gap or a concrete number works well. Avoid misleading clickbait (标题党).
-- **Body (正文):** conversational, first-person, and genuinely helpful. Short paragraphs with the occasional emoji as a visual marker; keep it under ~1,000 characters. Share the real experience (踩坑 / 复盘 / 干货), not a pitch.
-- **Tags (标签):** end with 5–10 relevant `#话题` tags.
-- **Self-promotion:** hard ads and off-platform redirection (external links, WeChat, "私信") are sensitive and can get a note suppressed (限流). Keep promotion soft and the value first. **Tell the founder to check Xiaohongshu's current promotion rules before posting**, the same way you would for Reddit.
+- **Title:** keep the headline punchy and roughly ≤ 20 characters of impact; a curiosity gap or a concrete number works well. Avoid misleading clickbait.
+- **Body:** conversational, first-person, and genuinely helpful. Short paragraphs with the occasional emoji as a visual marker; keep it under ~1,000 characters. Share the real experience (pitfalls / retrospectives / practical takeaways), not a pitch.
+- **Tags:** end with 5–10 relevant `#topic` tags.
+- **Self-promotion:** hard ads and off-platform redirection (external links, WeChat, DMs) are sensitive and can get a note's reach throttled. Keep promotion soft and the value first. **Tell the founder to check Xiaohongshu's current promotion rules before posting**, the same way you would for Reddit.
 - **Default language:** write in Chinese unless the founder asks otherwise.
 
 ### YouTube
