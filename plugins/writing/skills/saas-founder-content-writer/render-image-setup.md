@@ -1,6 +1,6 @@
 # Render Image Setup
 
-`scripts/render-image.js` turns an HTML/CSS file into a PNG using headless Chrome. Use it to produce **text- and data-driven graphics** — Xiaohongshu (小红书) covers and image cards, quote/data/metric cards, changelog cards, framework or comparison diagrams — deterministically and in batch. It is not for photographic images or real product screenshots — see the rendering decision rule in `SKILL.md`.
+`scripts/render-image.js` turns an HTML/CSS file into a PNG using headless Chrome. Use it to produce **text- and data-driven graphics** — Xiaohongshu covers and image cards, quote/data/metric cards, changelog cards, framework or comparison diagrams — deterministically and in batch. It is not for photographic images or real product screenshots — see the rendering decision rule in `SKILL.md`.
 
 No credentials, tokens, or network access are required.
 

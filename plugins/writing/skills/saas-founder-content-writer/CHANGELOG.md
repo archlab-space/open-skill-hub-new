@@ -3,16 +3,17 @@
 ## [0.10.0] - 2026-06-11
 
 ### Added
-- 产品/科普 content-angle mode: 科普 (knowledge/explainer) mode drops the product gate, captures a topic profile instead, and uses knowledge angles (explainer / how-it-works / 误区纠正 / 踩坑·复盘 / comparison / "what this means for you").
+- Product/Knowledge content-angle mode: Knowledge mode drops the product gate, captures a topic profile instead, and uses knowledge angles (explainer / how-it-works / myth-busting / pitfalls·retrospective / comparison / "what this means for you").
 - YouTube platform rules (title / description / thumbnail brief; default 9:16 Shorts) and a 9:16 `youtube-thumbnail.html` template for `render-image.js`.
 
 ### Changed
 - Broadened the skill identity (description, intro, core principle) from SaaS-only to founders **and** creators, covering knowledge content and YouTube. Skill name unchanged.
+- Converted all skill text, examples, and templates to English (Product/Knowledge mode labels; Xiaohongshu Title/Body/Tags); vault delegation now references a notes-vault skill by capability rather than a hardcoded name.
 
 ## [0.8.0] - 2026-06-08
 
 ### Added
-- New Step 9 "Save To Vault (Optional)": opt-in archiving of finalized drafts to `<vault>/Founder Posts/YYYY-MM-DD.md`, one file per day. Reuses the env-var / named-path / three-option location resolution, `obsidian`-skill delegation, and graceful chat fallback. Rendered PNGs (Xiaohongshu covers / data cards) are copied into `Founder Posts/attachments/` and embedded with Obsidian `![[...]]`; when no PNG was rendered, the image brief is saved instead. The per-section file format records angle, platform, and platform-specific fields (X thread numbering, Reddit title/body, Xiaohongshu 标题/正文/#标签).
+- New Step 9 "Save To Vault (Optional)": opt-in archiving of finalized drafts to `<vault>/Founder Posts/YYYY-MM-DD.md`, one file per day. Reuses the env-var / named-path / three-option location resolution, `obsidian`-skill delegation, and graceful chat fallback. Rendered PNGs (Xiaohongshu covers / data cards) are copied into `Founder Posts/attachments/` and embedded with Obsidian `![[...]]`; when no PNG was rendered, the image brief is saved instead. The per-section file format records angle, platform, and platform-specific fields (X thread numbering, Reddit title/body, Xiaohongshu Title/Body/#Tags).
 
 ### Changed
 - Output Format gains a first-draft "Save to vault?" prompt line; Key Rules document the opt-in save behavior. README lists the new step.
@@ -26,7 +27,7 @@
 ## [0.7.0] - 2026-06-05
 
 ### Added
-- Xiaohongshu (小红书) platform support: platform option in intake, a dedicated Platform Rules section (image-first cover, title/body/tags conventions, soft-promotion norms), output format and key-rule updates, and Chinese-by-default behavior.
+- Xiaohongshu platform support: platform option in intake, a dedicated Platform Rules section (image-first cover, title/body/tags conventions, soft-promotion norms), output format and key-rule updates, and Chinese-by-default behavior.
 - New Step 7 "Decide Whether An Image Helps" with an image brief, plus a "Rendering Text/Data Graphics" subsection for HTML/CSS + headless Chrome rendering and a decision rule for when to render vs. use an image model vs. a real screenshot. Xiaohongshu always requires a cover.
 - Rendering tooling: `scripts/render-image.js` (Puppeteer, with system-Chrome and manual fallback), `scripts/package.json`, `render-image-setup.md`, and example templates `assets/xiaohongshu-cover.html`, `assets/data-card.html`.
 
