@@ -121,7 +121,14 @@ See the contract below.
 
 ### Step 6 — Render with Remotion
 
-Hand the `scenes.json` to the Remotion composition, which reads the data and renders visuals + key subtitles + narration.
+Hand the `scenes.json` to the Remotion composition, which reads the data and renders the visuals + all on-screen text (key cards and SRT-driven narration captions).
+
+What Remotion needs vs. benefits from:
+
+- **Required input: the SRT (+ `scenes.json`).** Timing and captions are driven by the SRT clock, so Remotion can render a frame-accurate, silent video from the data alone.
+- **Recommended: import the audio into the preview.** Not to compute timing, but to *verify* alignment and tune sub-segment beats — the SRT is a lossy approximation (Whisper boundaries drift ~100–300ms), so you cannot QA it against itself. Whether the *export* bakes the audio in is the Method A/B choice below.
+
+Then:
 
 - **Delegate the composition code to a Remotion skill such as `remotion-best-practices`.** This skill supplies the *data and timing*; that skill supplies the *Remotion idioms* (Sequences, interpolation, `<Audio>`, rendering). Invoke or follow it for any actual component/render work.
 - *Optional check:* render a single still frame or low-res preview before the full render to catch layout issues early.
