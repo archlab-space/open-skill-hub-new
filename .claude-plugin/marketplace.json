@@ -25,6 +25,15 @@
       }
     },
     {
+      "name": "open-skill-hub-video",
+      "description": "Video production workflow skills for AI agents",
+      "source": "./plugins/video",
+      "author": {
+        "name": "devasher",
+        "email": "hlxstc680@gmail.com"
+      }
+    },
+    {
       "name": "open-skill-hub-writing",
       "description": "Writing and content strategy skills for AI agents",
       "source": "./plugins/writing",
