@@ -10,13 +10,14 @@ to be portable across agent platforms; the install steps below cover Claude Code
 
 ## What's inside
 
-The hub is split into three plugins. Install only the ones you need.
+The hub is split into four plugins. Install only the ones you need.
 
 | Plugin | Install name | Skills |
 | --- | --- | --- |
 | **docs** | `open-skill-hub-docs` | [`readme-writer`](plugins/docs/skills/readme-writer/README.md) — analyze a repo, detect its type, and draft or audit a README from real commands and examples. |
 | **seo** | `open-skill-hub-seo` | [`geo-first-seo`](plugins/seo/skills/geo-first-seo/README.md) — end-to-end Generative Engine Optimization: strategy → create/audit content → markup → score, so a page is more likely to be cited by AI answer engines. |
 | **writing** | `open-skill-hub-writing` | [`x-post-strategist`](plugins/writing/skills/x-post-strategist/README.md) — turn ideas, notes, or reports into X posts and threads.<br>[`saas-founder-content-writer`](plugins/writing/skills/saas-founder-content-writer/README.md) — turn product updates and founder lessons into high-signal posts for X, Reddit, and LinkedIn. |
+| **video** | `open-skill-hub-video` | [`remotion-video-pipeline`](plugins/video/skills/remotion-video-pipeline/README.md) — standardize an audio-driven Remotion short-video workflow: script → audio → SRT → timeline → render → CapCut handoff, with mandatory human gates. |
 
 ## Installation
 
@@ -32,6 +33,7 @@ Then install the plugins you want:
 /plugin install open-skill-hub-docs@open-skill-hub
 /plugin install open-skill-hub-seo@open-skill-hub
 /plugin install open-skill-hub-writing@open-skill-hub
+/plugin install open-skill-hub-video@open-skill-hub
 ```
 
 Reload so the new skills are available:
