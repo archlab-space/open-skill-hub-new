@@ -34,7 +34,7 @@ It is **not** for ad creative, generic brand copy, or posts with no underlying s
 **Phase 3: Draft**
 5. Applies six writing principles (specific, useful-before-promotional, honest, scene-first, no forced profundity, no hype) with before/after examples
 6. Applies platform rules for X, Reddit, LinkedIn, Xiaohongshu, and YouTube
-7. Decides whether an image helps (Xiaohongshu always needs a cover; YouTube Shorts uses a 9:16 thumbnail) and, for text/data graphics, renders it from HTML/CSS
+7. Decides whether an image helps (Xiaohongshu always needs a cover, plus a content-derived card count — one card per distinct body point, capped at 18; YouTube Shorts uses a 9:16 thumbnail) and, for text/data graphics, renders it from HTML/CSS
 8. Writes an open that earns the next line
 
 **Phase 4: Review**

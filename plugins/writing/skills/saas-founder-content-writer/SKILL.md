@@ -160,7 +160,17 @@ The first line decides whether the rest is read.
 
 Do not add an image by default. Add one only when it improves understanding, credibility, or shareability.
 
-**Exception — Xiaohongshu requires a cover.** It is image-first: the first image is the cover and decides whether the note is opened. For Xiaohongshu, always produce a cover, and add follow-up image cards when the body has multiple points or data worth showing.
+**Exception — Xiaohongshu requires a cover.** It is image-first: the first image is the cover and decides whether the note is opened. For Xiaohongshu, always produce a cover, then derive the rest of the carousel from the draft.
+
+**Xiaohongshu image count — decide it deliberately from the finished draft; do not improvise:**
+
+- **1 cover** (always — the hook frame).
+- **+1 card per distinct body unit** worth showing on its own: a numbered/bulleted point, a data/metric block, a framework or comparison, or a standout quote.
+- Connective prose, transitions, and the tag line do **not** get their own card.
+- **Floor:** 1 (cover only, when the body is a single short thought).
+- **Ceiling:** Xiaohongshu allows at most 18 images — never exceed it; if the draft would imply more, group related points onto one card.
+
+State the resulting plan in the image brief (the `Cards:` line below), then render or spec all of them in one pass — no confirmation prompt.
 
 An image is useful for:
 
@@ -176,6 +186,7 @@ If an image helps, include an image brief:
 
 ```text
 Image recommendation: Yes
+Cards: [Xiaohongshu only — "1 cover + N cards (M images total)", then one line per card naming what it shows]
 Purpose: [why the image improves the post]
 Format: [cover / quote card / data card / framework / comparison / changelog card]
 Aspect ratio: [3:4 for Xiaohongshu / 9:16 for YouTube Shorts / 1:1 / 16:9]
@@ -210,7 +221,7 @@ When the image is text- or data-driven, you can render it deterministically with
    node scripts/render-image.js <input.html> <output.png> [--width=1080] [--height=1440] [--scale=2]
    ```
 
-3. Attach the PNG. For a Xiaohongshu carousel, render one HTML per card and keep the cover first.
+3. Attach the PNG. For a Xiaohongshu carousel, render one HTML per planned card (see the image-count rule in Step 7) and keep the cover first.
 
 First-time setup, sizes, and fallback behavior are in `render-image-setup.md`. If no browser can launch, the script keeps the HTML and prints manual-render instructions — relay the image brief so the user can render or generate it another way.
 
@@ -231,7 +242,7 @@ Before finalizing, check the draft against this rubric. Revise once if any line 
 | Honest | Does not overclaim, hide tradeoffs, or invent results. |
 | Human voice | No hype words or AI tells; reads like the founder talking. |
 | Strong open | First line earns the second. |
-| Image fit | Image added only when it earns its place; for Xiaohongshu, a cover is present. Text/data graphics use HTML/CSS rendering; no fabricated screenshots. |
+| Image fit | Image added only when it earns its place; for Xiaohongshu, a cover is present and the card count is stated and content-derived (cover + one card per body unit, ≤ 18). Text/data graphics use HTML/CSS rendering; no fabricated screenshots. |
 
 ### Step 9: Save To Vault (Optional)
 
@@ -339,7 +350,7 @@ Draft:
 [final post — for X threads, number each post; for Reddit, include Title + Body; for Xiaohongshu, include Title + Body + #tags]
 
 Image:
-[Image recommendation: No - reason, OR the image brief; for Xiaohongshu always include a cover. Note the render command if using render-image.js.]
+[Image recommendation: No - reason, OR the image brief; for Xiaohongshu always include a cover and the `Cards:` count plan (cover + one card per body unit). Note the render command if using render-image.js.]
 
 Why this works:
 [1–3 concise bullets tied to the angle and goal]
@@ -360,7 +371,7 @@ When you present two angles, repeat the block for each, labeled by angle.
 - Never invent metrics, user quotes, results, testimonials, or features. Use only what the founder provides; if a number would strengthen the post but you don't have it, ask for it or leave it out.
 - Every post must name one of the 8 angles.
 - Respect each platform's self-promotion norms; for Reddit, always remind the founder to check subreddit rules before posting; for Xiaohongshu, remind the founder that hard ads and off-platform redirection are sensitive and to check the platform's current rules.
-- Xiaohongshu requires a cover image; default to Chinese for Xiaohongshu unless told otherwise.
+- Xiaohongshu requires a cover image and a content-derived card count (cover + one card per distinct body unit, floor 1, hard ceiling 18); state the count in the image brief and produce the set in one pass. Default to Chinese for Xiaohongshu unless told otherwise.
 - Image rendering via `render-image.js` is optional and only for text/data graphics; on failure, degrade gracefully to the image brief. Never fabricate a product screenshot — capture the real one.
 - Keep the final text publishable, not just instructive — do not bury the draft under explanation.
 - Do not make weak or early-stage results sound more certain than they are.
