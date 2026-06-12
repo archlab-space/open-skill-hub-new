@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.11.0] - 2026-06-12
+
+### Changed
+- Step 7 now defines an explicit Xiaohongshu image-count rule: the carousel size is derived from the finished draft (1 cover + one card per distinct body unit — a numbered/bulleted point, data/metric block, framework/comparison, or standout quote), with a floor of 1 and a hard ceiling of 18. The image brief gains a `Cards:` line that states the planned count and what each card shows; the set is produced in one pass without a confirmation prompt. Synced the Step 8 "Image fit" rubric row, the Output Format image block, the carousel rendering note, and Key Rules.
+
 ## [0.10.0] - 2026-06-11
 
 ### Added
